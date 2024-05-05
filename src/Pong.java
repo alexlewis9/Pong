@@ -1,9 +1,4 @@
-/*Name: Sarah Sabaa & Irena Liu
- *Date: 5/20/2020
- *Rev: Production Release
- *Notes: This class extends JPanel and uses different movement detections to run the pong game.
- *
- */
+// This class extends JPanel and uses different movement detections to run the pong game.
 
 import java.awt.Color;
 import java.awt.Container;
@@ -24,14 +19,14 @@ import javax.swing.Timer;
 public class Pong extends JPanel implements ActionListener, KeyListener, MouseMotionListener {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public static JFrame window;
-	
+
 	static int width = 600;
 	static int height = 400;
 
 	final int MARGIN = 20;
-	
+
 	Font font = new Font("SansSerif", Font.PLAIN, 14);
 	Font font2 = new Font("SansSerif", Font.PLAIN, 16);
 	Font font3 = new Font("SansSerif", Font.PLAIN, 24);
@@ -56,18 +51,18 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 		MOUSE, // with computer
 		TWOPLAYER //with keys
 	}
-	
+
 	Control control = Control.NONE;
-	
+
 	int score1 = 0;
 	int score2 = 0;
-	
+
 	enum Level {
 		NONE,
 		NORMAL,
 		UNBEATABLE
 	}
-	
+
 	Level level = Level.NONE;
 
 	int maxScore = 10;
@@ -78,7 +73,7 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 	Paddle player1;
 	Paddle player2;
 
-	Timer timer = new Timer(5, this);
+	Timer timer = new Timer(4, this);
 
 	GameTime gameTime = new GameTime();
 
@@ -120,12 +115,12 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 		height = getHeight();
 
 		g.setColor(Color.WHITE);
-		
+
 		if (!playing && !gameOver) {
 			setUpGamePaint(g);
 		} else if (playing && !gameOver) {
 			playingPaint(g);
-		} else if (gameOver) {
+		} else {
 			gameOverPaint(g);
 		}
 
@@ -161,7 +156,7 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 			gameTime.endTimer();
 		}
 	}
-	
+
 	public void updateScore() {
 		if (reachedRight()) {
 			if (hitPaddle(player1)) {
@@ -180,19 +175,19 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 			}
 		}
 	}
-	
+
 	public boolean reachedRight() {
 		return ball.getX() >= width - player1.PADDLE_WIDTH - MARGIN;
 	}
-	
+
 	public boolean reachedLeft() {
 		return ball.getX() <= player2.PADDLE_WIDTH + MARGIN;
 	}
-	
+
 	public boolean hitPaddle(Paddle paddle) {
 		return ball.getY() >= paddle.y - ball.BALL_HEIGHT && ball.getY() <= paddle.y + player1.PADDLE_HEIGHT;
 	}
-	
+
 	public void setUpGamePaint(Graphics g) {
 		if (!playing && !chosenPlayers) {
 			g.drawString("Select the number of players.", width / 2 - 100, height / 6);
@@ -215,10 +210,11 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 			}
 			g.drawString("First player to 10 points wins the game.", width / 2 - 150, height / 6 + 100);
 			g.drawString("Press the spacebar to start.", width / 2 - 90, height / 6 + 150);
+			g.drawString("Press the spacebar to start.", width / 2 - 90, height / 6 + 150);
 			timer.start();
 		}
 	}
-	
+
 	public void playingPaint(Graphics g) {
 		ball.paint(g);
 		player1.paint(g);
@@ -232,7 +228,7 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 			g.drawString("Longest rally: " + longestMatch, width - 140, height - MARGIN);
 		}
 	}
-	
+
 	public void gameOverPaint(Graphics g) {
 		g.setFont(font3);
 		g.drawString("" + score2, width / 2 - MARGIN, 30);
@@ -270,7 +266,7 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 		button2.setVisible(true);
 		repaint();
 	}
-	
+
 	public void choosePlayers(JButton button) {
 		if (button == button1) {
 			button3.setVisible(true);
@@ -319,7 +315,7 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 		button6.setVisible(false);
 		chosenLevel = true;
 	}
-	
+
 	public void actionPerformed(ActionEvent e) {
 		if (!chosenPlayers || !chosenControl || !chosenLevel) {
 			JButton button = (JButton) e.getSource();
@@ -331,7 +327,7 @@ public class Pong extends JPanel implements ActionListener, KeyListener, MouseMo
 				chooseLevel(button);
 			}
 		}
-		if (playing && !gameOver) {
+        if (playing && !gameOver) {
 			ball.move();
 			player1.move(-1);
 			player2.move(-1);

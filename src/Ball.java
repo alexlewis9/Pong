@@ -1,9 +1,4 @@
-/*Name: Sarah Sabaa & Irena Liu
- *Date: 5/20/2020
- *Rev: Production Release
- *Notes: This class creates a ball that moves at random speeds and reflects off paddles.
- *
- */
+// This class creates a ball that moves at random speeds and reflects off paddles.
 
 import java.awt.Graphics;
 

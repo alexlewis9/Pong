@@ -1,9 +1,4 @@
-/*Name: Sarah Sabaa & Irena Liu
- *Date: 5/20/2020
- *Rev: Production Release
- *Notes: This class moves the player paddle based on the mouse movement.
- *
- */
+// This class moves the player paddle based on the mouse movement.
 
 public class PlayerPaddleMouse extends Paddle {
 

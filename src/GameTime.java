@@ -1,9 +1,4 @@
-/*Name: Sarah Sabaa & Irena Liu
- *Date: 5/20/2020
- *Rev: Production Release
- *Notes: This class creates a timer used when playing unbeatable mode.
- *
- */
+// This class creates a timer used when playing unbeatable mode.
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -11,8 +6,8 @@ import java.util.TimerTask;
 public class GameTime {
 
 	private int seconds = 0;
-	Timer myTimer = new Timer();
-	TimerTask task = new TimerTask() {
+	private Timer myTimer = new Timer();
+	private TimerTask task = new TimerTask() {
 			public void run() {
 				seconds ++;
 			}

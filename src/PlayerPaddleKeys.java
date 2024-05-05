@@ -1,9 +1,4 @@
-/*Name: Sarah Sabaa & Irena Liu
- *Date: 5/20/2020
- *Rev: Production Release
- *Notes: This class moves the player paddle based on the keys the user presses.
- *
- */
+// This class moves the player paddle based on the keys the user presses.
 
 public class PlayerPaddleKeys extends Paddle {
 	

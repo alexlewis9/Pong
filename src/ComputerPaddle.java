@@ -1,9 +1,4 @@
-/*Name: Sarah Sabaa & Irena Liu
- *Date: 5/20/2020
- *Rev: Production Release
- *Notes: This class creates a computer paddle that moves in two different levels.
- *
- */
+// This class creates a computer paddle that moves in two different levels.
 
 public class ComputerPaddle extends Paddle {
 
