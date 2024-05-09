@@ -1,1 +1,1 @@
-Pong Game with multiplayer and vs. computer options.
+Pong game using Swing with multiplayer and vs. computer options.
